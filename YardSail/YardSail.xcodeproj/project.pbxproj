@@ -1,0 +1,803 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		73CAA74D02C1349830727FE9 /* Pods_YardSailUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5089FC77CFDE4A344AF4554E /* Pods_YardSailUITests.framework */; };
+		8E5AB1B3137268FEE6F79161 /* Pods_YardSail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4A6CBABE0D6848E85D86C9 /* Pods_YardSail.framework */; };
+		9CEBE8811F8666FC6420000F /* Pods_YardSailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60618A5537A3E3402E1A5C55 /* Pods_YardSailTests.framework */; };
+		C91FC82F223AAB2B009EDE91 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91FC82E223AAB2B009EDE91 /* LoginViewController.swift */; };
+		C93010B322493D7800A6F2BE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93010B222493D7800A6F2BE /* RegisterViewController.swift */; };
+		C9612CF8222EDA6A00E61565 /* YardSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9612CF7222EDA6A00E61565 /* YardSale.swift */; };
+		C9612CFA222EDC2F00E61565 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9612CF9222EDC2F00E61565 /* CustomTableViewCell.swift */; };
+		C9612CFC222EDE4A00E61565 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9612CFB222EDE4A00E61565 /* DetailViewController.swift */; };
+		C9612D07222EFC9E00E61565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9612D06222EFC9E00E61565 /* Main.storyboard */; };
+		C963513C224282A9002BE414 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C963513B224282A9002BE414 /* MessageViewController.swift */; };
+		C9696A64223AC28700E09FD6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C9696A63223AC28700E09FD6 /* README.md */; };
+		C98CF148224279B600A6C762 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98CF147224279B600A6C762 /* CalendarViewController.swift */; };
+		C9BD9D1C22380D5F00F2068F /* AddSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD9D1B22380D5F00F2068F /* AddSaleViewController.swift */; };
+		C9BD9D1E22380D6B00F2068F /* EditSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD9D1D22380D6B00F2068F /* EditSaleViewController.swift */; };
+		C9C8A909222C6A8C006A6B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C8A908222C6A8C006A6B95 /* AppDelegate.swift */; };
+		C9C8A90B222C6A8C006A6B95 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C8A90A222C6A8C006A6B95 /* HomeViewController.swift */; };
+		C9C8A912222C6A8D006A6B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9C8A911222C6A8D006A6B95 /* Assets.xcassets */; };
+		C9C8A915222C6A8D006A6B95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C8A913222C6A8D006A6B95 /* LaunchScreen.storyboard */; };
+		C9C8A920222C6A8E006A6B95 /* YardSailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C8A91F222C6A8E006A6B95 /* YardSailTests.swift */; };
+		C9C8A92B222C6A8E006A6B95 /* YardSailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C8A92A222C6A8E006A6B95 /* YardSailUITests.swift */; };
+		C9D72984222C6B7500A761FB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D72983222C6B7500A761FB /* ProfileViewController.swift */; };
+		C9D72986222C6D4800A761FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9D72985222C6D4800A761FB /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C9C8A91C222C6A8E006A6B95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9C8A8FD222C6A8C006A6B95 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9C8A904222C6A8C006A6B95;
+			remoteInfo = YardSail;
+		};
+		C9C8A927222C6A8E006A6B95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9C8A8FD222C6A8C006A6B95 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9C8A904222C6A8C006A6B95;
+			remoteInfo = YardSail;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3F59ED57811464D47D679BE8 /* Pods-YardSailTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YardSailTests.debug.xcconfig"; path = "Target Support Files/Pods-YardSailTests/Pods-YardSailTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5089FC77CFDE4A344AF4554E /* Pods_YardSailUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YardSailUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F8F474B172D2C7DFE7570C5 /* Pods-YardSail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YardSail.release.xcconfig"; path = "Target Support Files/Pods-YardSail/Pods-YardSail.release.xcconfig"; sourceTree = "<group>"; };
+		60618A5537A3E3402E1A5C55 /* Pods_YardSailTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YardSailTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2ECE4CC5F1964C64DAFED36 /* Pods-YardSailTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YardSailTests.release.xcconfig"; path = "Target Support Files/Pods-YardSailTests/Pods-YardSailTests.release.xcconfig"; sourceTree = "<group>"; };
+		B93909182FA3BB5AC3154803 /* Pods-YardSailUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YardSailUITests.release.xcconfig"; path = "Target Support Files/Pods-YardSailUITests/Pods-YardSailUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BE4A6CBABE0D6848E85D86C9 /* Pods_YardSail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YardSail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEDB9B3045A01E954CAE02BD /* Pods-YardSailUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YardSailUITests.debug.xcconfig"; path = "Target Support Files/Pods-YardSailUITests/Pods-YardSailUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C3CB29209213311D5793134A /* Pods-YardSail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YardSail.debug.xcconfig"; path = "Target Support Files/Pods-YardSail/Pods-YardSail.debug.xcconfig"; sourceTree = "<group>"; };
+		C91FC82E223AAB2B009EDE91 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C93010B222493D7800A6F2BE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C9612CF7222EDA6A00E61565 /* YardSale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YardSale.swift; sourceTree = "<group>"; };
+		C9612CF9222EDC2F00E61565 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		C9612CFB222EDE4A00E61565 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C9612D06222EFC9E00E61565 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C963513B224282A9002BE414 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		C9696A63223AC28700E09FD6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C98CF147224279B600A6C762 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		C9BD9D1B22380D5F00F2068F /* AddSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSaleViewController.swift; sourceTree = "<group>"; };
+		C9BD9D1D22380D6B00F2068F /* EditSaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSaleViewController.swift; sourceTree = "<group>"; };
+		C9C8A905222C6A8C006A6B95 /* YardSail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YardSail.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9C8A908222C6A8C006A6B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C9C8A90A222C6A8C006A6B95 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C9C8A911222C6A8D006A6B95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C9C8A914222C6A8D006A6B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C9C8A916222C6A8D006A6B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9C8A91B222C6A8E006A6B95 /* YardSailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YardSailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9C8A91F222C6A8E006A6B95 /* YardSailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YardSailTests.swift; sourceTree = "<group>"; };
+		C9C8A921222C6A8E006A6B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9C8A926222C6A8E006A6B95 /* YardSailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YardSailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9C8A92A222C6A8E006A6B95 /* YardSailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YardSailUITests.swift; sourceTree = "<group>"; };
+		C9C8A92C222C6A8E006A6B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9D72983222C6B7500A761FB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C9D72985222C6D4800A761FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C9C8A902222C6A8C006A6B95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E5AB1B3137268FEE6F79161 /* Pods_YardSail.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9C8A918222C6A8E006A6B95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CEBE8811F8666FC6420000F /* Pods_YardSailTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9C8A923222C6A8E006A6B95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73CAA74D02C1349830727FE9 /* Pods_YardSailUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		55CF5EA6C0DD276C0A531A54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3CB29209213311D5793134A /* Pods-YardSail.debug.xcconfig */,
+				5F8F474B172D2C7DFE7570C5 /* Pods-YardSail.release.xcconfig */,
+				3F59ED57811464D47D679BE8 /* Pods-YardSailTests.debug.xcconfig */,
+				B2ECE4CC5F1964C64DAFED36 /* Pods-YardSailTests.release.xcconfig */,
+				BEDB9B3045A01E954CAE02BD /* Pods-YardSailUITests.debug.xcconfig */,
+				B93909182FA3BB5AC3154803 /* Pods-YardSailUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C9612CFE222EECFC00E61565 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8A90A222C6A8C006A6B95 /* HomeViewController.swift */,
+				C93010B222493D7800A6F2BE /* RegisterViewController.swift */,
+				C91FC82E223AAB2B009EDE91 /* LoginViewController.swift */,
+				C9612CFB222EDE4A00E61565 /* DetailViewController.swift */,
+				C9D72983222C6B7500A761FB /* ProfileViewController.swift */,
+				C9BD9D1B22380D5F00F2068F /* AddSaleViewController.swift */,
+				C9BD9D1D22380D6B00F2068F /* EditSaleViewController.swift */,
+				C963513B224282A9002BE414 /* MessageViewController.swift */,
+				C98CF147224279B600A6C762 /* CalendarViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C9612D05222EFA6800E61565 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9612CF7222EDA6A00E61565 /* YardSale.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C9C8A8FC222C6A8C006A6B95 = {
+			isa = PBXGroup;
+			children = (
+				C9696A63223AC28700E09FD6 /* README.md */,
+				C9C8A907222C6A8C006A6B95 /* YardSail */,
+				C9C8A91E222C6A8E006A6B95 /* YardSailTests */,
+				C9C8A929222C6A8E006A6B95 /* YardSailUITests */,
+				C9C8A906222C6A8C006A6B95 /* Products */,
+				55CF5EA6C0DD276C0A531A54 /* Pods */,
+				FCCFCB5B1D40245397DC98D5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C9C8A906222C6A8C006A6B95 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8A905222C6A8C006A6B95 /* YardSail.app */,
+				C9C8A91B222C6A8E006A6B95 /* YardSailTests.xctest */,
+				C9C8A926222C6A8E006A6B95 /* YardSailUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9C8A907222C6A8C006A6B95 /* YardSail */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8A908222C6A8C006A6B95 /* AppDelegate.swift */,
+				C9612D05222EFA6800E61565 /* Models */,
+				C9612CFE222EECFC00E61565 /* ViewControllers */,
+				C9612CF9222EDC2F00E61565 /* CustomTableViewCell.swift */,
+				C9C8A911222C6A8D006A6B95 /* Assets.xcassets */,
+				C9612D06222EFC9E00E61565 /* Main.storyboard */,
+				C9C8A913222C6A8D006A6B95 /* LaunchScreen.storyboard */,
+				C9C8A916222C6A8D006A6B95 /* Info.plist */,
+				C9D72985222C6D4800A761FB /* GoogleService-Info.plist */,
+			);
+			path = YardSail;
+			sourceTree = "<group>";
+		};
+		C9C8A91E222C6A8E006A6B95 /* YardSailTests */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8A91F222C6A8E006A6B95 /* YardSailTests.swift */,
+				C9C8A921222C6A8E006A6B95 /* Info.plist */,
+			);
+			path = YardSailTests;
+			sourceTree = "<group>";
+		};
+		C9C8A929222C6A8E006A6B95 /* YardSailUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C9C8A92A222C6A8E006A6B95 /* YardSailUITests.swift */,
+				C9C8A92C222C6A8E006A6B95 /* Info.plist */,
+			);
+			path = YardSailUITests;
+			sourceTree = "<group>";
+		};
+		FCCFCB5B1D40245397DC98D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A6CBABE0D6848E85D86C9 /* Pods_YardSail.framework */,
+				60618A5537A3E3402E1A5C55 /* Pods_YardSailTests.framework */,
+				5089FC77CFDE4A344AF4554E /* Pods_YardSailUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C9C8A904222C6A8C006A6B95 /* YardSail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9C8A92F222C6A8E006A6B95 /* Build configuration list for PBXNativeTarget "YardSail" */;
+			buildPhases = (
+				26B697309F87581B7CB0DF0A /* [CP] Check Pods Manifest.lock */,
+				C9C8A901222C6A8C006A6B95 /* Sources */,
+				C9C8A902222C6A8C006A6B95 /* Frameworks */,
+				C9C8A903222C6A8C006A6B95 /* Resources */,
+				A5FD9F981D0FDBA70B9524BB /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YardSail;
+			productName = YardSail;
+			productReference = C9C8A905222C6A8C006A6B95 /* YardSail.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C9C8A91A222C6A8E006A6B95 /* YardSailTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9C8A932222C6A8E006A6B95 /* Build configuration list for PBXNativeTarget "YardSailTests" */;
+			buildPhases = (
+				372F5A7D1436614820C447AF /* [CP] Check Pods Manifest.lock */,
+				C9C8A917222C6A8E006A6B95 /* Sources */,
+				C9C8A918222C6A8E006A6B95 /* Frameworks */,
+				C9C8A919222C6A8E006A6B95 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9C8A91D222C6A8E006A6B95 /* PBXTargetDependency */,
+			);
+			name = YardSailTests;
+			productName = YardSailTests;
+			productReference = C9C8A91B222C6A8E006A6B95 /* YardSailTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C9C8A925222C6A8E006A6B95 /* YardSailUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9C8A935222C6A8E006A6B95 /* Build configuration list for PBXNativeTarget "YardSailUITests" */;
+			buildPhases = (
+				91ED4E416298FB7E0D26A963 /* [CP] Check Pods Manifest.lock */,
+				C9C8A922222C6A8E006A6B95 /* Sources */,
+				C9C8A923222C6A8E006A6B95 /* Frameworks */,
+				C9C8A924222C6A8E006A6B95 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9C8A928222C6A8E006A6B95 /* PBXTargetDependency */,
+			);
+			name = YardSailUITests;
+			productName = YardSailUITests;
+			productReference = C9C8A926222C6A8E006A6B95 /* YardSailUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C9C8A8FD222C6A8C006A6B95 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Matthew Piasecki";
+				TargetAttributes = {
+					C9C8A904222C6A8C006A6B95 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
+					};
+					C9C8A91A222C6A8E006A6B95 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
+						TestTargetID = C9C8A904222C6A8C006A6B95;
+					};
+					C9C8A925222C6A8E006A6B95 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
+						TestTargetID = C9C8A904222C6A8C006A6B95;
+					};
+				};
+			};
+			buildConfigurationList = C9C8A900222C6A8C006A6B95 /* Build configuration list for PBXProject "YardSail" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C9C8A8FC222C6A8C006A6B95;
+			productRefGroup = C9C8A906222C6A8C006A6B95 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C9C8A904222C6A8C006A6B95 /* YardSail */,
+				C9C8A91A222C6A8E006A6B95 /* YardSailTests */,
+				C9C8A925222C6A8E006A6B95 /* YardSailUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C9C8A903222C6A8C006A6B95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9612D07222EFC9E00E61565 /* Main.storyboard in Resources */,
+				C9C8A915222C6A8D006A6B95 /* LaunchScreen.storyboard in Resources */,
+				C9696A64223AC28700E09FD6 /* README.md in Resources */,
+				C9D72986222C6D4800A761FB /* GoogleService-Info.plist in Resources */,
+				C9C8A912222C6A8D006A6B95 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9C8A919222C6A8E006A6B95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9C8A924222C6A8E006A6B95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		26B697309F87581B7CB0DF0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YardSail-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		372F5A7D1436614820C447AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YardSailTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91ED4E416298FB7E0D26A963 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YardSailUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5FD9F981D0FDBA70B9524BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YardSail/Pods-YardSail-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftValidator/SwiftValidator.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftValidator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YardSail/Pods-YardSail-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C9C8A901222C6A8C006A6B95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C98CF148224279B600A6C762 /* CalendarViewController.swift in Sources */,
+				C9612CFA222EDC2F00E61565 /* CustomTableViewCell.swift in Sources */,
+				C9612CF8222EDA6A00E61565 /* YardSale.swift in Sources */,
+				C93010B322493D7800A6F2BE /* RegisterViewController.swift in Sources */,
+				C9BD9D1E22380D6B00F2068F /* EditSaleViewController.swift in Sources */,
+				C9BD9D1C22380D5F00F2068F /* AddSaleViewController.swift in Sources */,
+				C9C8A909222C6A8C006A6B95 /* AppDelegate.swift in Sources */,
+				C9D72984222C6B7500A761FB /* ProfileViewController.swift in Sources */,
+				C963513C224282A9002BE414 /* MessageViewController.swift in Sources */,
+				C9C8A90B222C6A8C006A6B95 /* HomeViewController.swift in Sources */,
+				C9612CFC222EDE4A00E61565 /* DetailViewController.swift in Sources */,
+				C91FC82F223AAB2B009EDE91 /* LoginViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9C8A917222C6A8E006A6B95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C8A920222C6A8E006A6B95 /* YardSailTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9C8A922222C6A8E006A6B95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9C8A92B222C6A8E006A6B95 /* YardSailUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C9C8A91D222C6A8E006A6B95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9C8A904222C6A8C006A6B95 /* YardSail */;
+			targetProxy = C9C8A91C222C6A8E006A6B95 /* PBXContainerItemProxy */;
+		};
+		C9C8A928222C6A8E006A6B95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9C8A904222C6A8C006A6B95 /* YardSail */;
+			targetProxy = C9C8A927222C6A8E006A6B95 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C9C8A913222C6A8D006A6B95 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9C8A914222C6A8D006A6B95 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C9C8A92D222C6A8E006A6B95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C9C8A92E222C6A8E006A6B95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C9C8A930222C6A8E006A6B95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3CB29209213311D5793134A /* Pods-YardSail.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V6FKZDY4TW;
+				INFOPLIST_FILE = YardSail/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mple.yardsail;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C9C8A931222C6A8E006A6B95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F8F474B172D2C7DFE7570C5 /* Pods-YardSail.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V6FKZDY4TW;
+				INFOPLIST_FILE = YardSail/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mple.yardsail;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C9C8A933222C6A8E006A6B95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F59ED57811464D47D679BE8 /* Pods-YardSailTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V6FKZDY4TW;
+				INFOPLIST_FILE = YardSailTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiasecki.YardSailTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YardSail.app/YardSail";
+			};
+			name = Debug;
+		};
+		C9C8A934222C6A8E006A6B95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2ECE4CC5F1964C64DAFED36 /* Pods-YardSailTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V6FKZDY4TW;
+				INFOPLIST_FILE = YardSailTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiasecki.YardSailTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YardSail.app/YardSail";
+			};
+			name = Release;
+		};
+		C9C8A936222C6A8E006A6B95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEDB9B3045A01E954CAE02BD /* Pods-YardSailUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V6FKZDY4TW;
+				INFOPLIST_FILE = YardSailUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiasecki.YardSailUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YardSail;
+			};
+			name = Debug;
+		};
+		C9C8A937222C6A8E006A6B95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B93909182FA3BB5AC3154803 /* Pods-YardSailUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V6FKZDY4TW;
+				INFOPLIST_FILE = YardSailUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpiasecki.YardSailUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YardSail;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C9C8A900222C6A8C006A6B95 /* Build configuration list for PBXProject "YardSail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9C8A92D222C6A8E006A6B95 /* Debug */,
+				C9C8A92E222C6A8E006A6B95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9C8A92F222C6A8E006A6B95 /* Build configuration list for PBXNativeTarget "YardSail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9C8A930222C6A8E006A6B95 /* Debug */,
+				C9C8A931222C6A8E006A6B95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9C8A932222C6A8E006A6B95 /* Build configuration list for PBXNativeTarget "YardSailTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9C8A933222C6A8E006A6B95 /* Debug */,
+				C9C8A934222C6A8E006A6B95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9C8A935222C6A8E006A6B95 /* Build configuration list for PBXNativeTarget "YardSailUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9C8A936222C6A8E006A6B95 /* Debug */,
+				C9C8A937222C6A8E006A6B95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C9C8A8FD222C6A8C006A6B95 /* Project object */;
+}
