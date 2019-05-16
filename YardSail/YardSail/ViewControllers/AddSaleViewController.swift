@@ -11,13 +11,15 @@ import SwiftValidator
 import Photos
 import os.log
 import Firebase
+import GooglePlaces
 
 class AddSaleViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ValidationDelegate {
     
     var sale: YardSale?
+    var placesClient: GMSPlacesClient!
     @IBOutlet weak var titleField: UITextField!
     private var titlePicker: UIPickerView?
-    private let titleValues: NSArray = ["Yard Sale","Garage Sale","Esate Sale"]
+    private let titleValues: NSArray = ["Yard Sale","Garage Sale","Estate Sale"]
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var priceField: UITextField!
     @IBOutlet weak var image: UIImageView!
@@ -30,10 +32,12 @@ class AddSaleViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     @IBOutlet weak var descriptionField: UITextView!
     
     let validator = Validator()
+    let locationManager = CLLocationManager()
     var imageURL: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        placesClient = GMSPlacesClient.shared()
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(AddSaleViewController.dismissPicker))
         titlePicker = UIPickerView()
         titlePicker?.delegate = self
@@ -59,7 +63,24 @@ class AddSaleViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         timeField.inputAccessoryView = toolBar
         descriptionField.inputAccessoryView = toolBar
         titleField.text = ""
-        locationField.text = ""
+        enableLocationServices()
+        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+            if let error = error {
+                print("Current Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            self.locationField.text = "No current place"
+            
+            if let placeLikelihoodList = placeLikelihoodList {
+                let place = placeLikelihoodList.likelihoods.first?.place
+                if let place = place {
+                    self.locationField.text = place.name
+                    //self.locationField.text = place.formattedAddress?.components(separatedBy: ", ")
+                    //    .joined(separator: "\n")
+                }
+            }
+        })
         descriptionField.text = ""
         priceField.text = ""
         dateField.text = ""
@@ -139,6 +160,15 @@ class AddSaleViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     func textViewShouldReturn(_ textView: UITextView) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    func enableLocationServices() {
+        locationManager.delegate = self as? CLLocationManagerDelegate
+        
+        if (CLLocationManager.authorizationStatus() == .notDetermined) {
+            // Request when-in-use authorization initially
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
     
     // ValidationDelegate methods
@@ -252,7 +282,7 @@ class AddSaleViewController: UIViewController, UITextFieldDelegate, UITextViewDe
 }
 
 extension UIToolbar {
-    
+
     func ToolbarPiker(mySelect : Selector) -> UIToolbar {
         
         let toolBar = UIToolbar()
@@ -262,10 +292,16 @@ extension UIToolbar {
         toolBar.tintColor = UIColor.black
         toolBar.sizeToFit()
         
+//        let previousButton = UIBarButtonItem(title: "Prev", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+//        previousButton.width = 30
+        
+//        let nextButton = UIBarButtonItem(title: "Next", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+//        nextButton.width = 30
+        
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: mySelect)
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         
-        toolBar.setItems([ spaceButton, doneButton], animated: false)
+        toolBar.setItems([ /*previousButton, nextButton,*/ spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         
         return toolBar

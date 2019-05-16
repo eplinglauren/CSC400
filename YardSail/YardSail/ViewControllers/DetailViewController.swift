@@ -9,6 +9,7 @@
 import UIKit
 import EventKit
 import Firebase
+import FirebaseUI
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var passedTitleLabel: UILabel!
@@ -19,6 +20,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var passedDescLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
     
+    @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var msgLabel: UILabel!
     @IBOutlet weak var svdLabel: UILabel!
     
@@ -28,6 +30,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        navBar.title = dataFromTable?.title
         passedTitleLabel.text = dataFromTable?.title
         passedLocationLabel.text = dataFromTable?.location
         passedDateLabel.text = dataFromTable?.date
@@ -35,19 +38,10 @@ class DetailViewController: UIViewController {
         passedPriceLabel.text = dataFromTable?.pricing
         passedDescLabel.text = dataFromTable?.desc
         
-        let imageDownloadUrl = dataFromTable?.image
-        let imageStorageRef = imageStorage?.storage.reference(forURL: imageDownloadUrl!)
-        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        imageStorageRef?.getData(maxSize: 1 * 1024 * 1024) { data, error in
-            if error != nil {
-                // Uh-oh, an error occurred!
-            } else {
-                // Data for "images/---.png" is returned
-                let img = UIImage(data: data!)
-                self.image.image = img
-            }
-        }
-        
+        let imageDownloadUrl = (dataFromTable?.image)!
+        let imageStorageRef = (imageStorage?.storage.reference(forURL: imageDownloadUrl))!
+        let placeholderImage = UIImage(named: "loading")
+        self.image.sd_setImage(with: imageStorageRef, placeholderImage: placeholderImage)
     }
     
     func insertEvent(store: EKEventStore) {
@@ -83,6 +77,10 @@ class DetailViewController: UIViewController {
                     print("Error saving event in calendar")             }
             }
         }
+    }
+    
+    @IBAction func doneClicked(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func messageClicked(_ sender: UIButton) {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseUI
 
 var imageStorage : StorageReference?
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
@@ -148,17 +149,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell?.descLabel?.text = thisSale.desc
         
         let imageDownloadUrl = thisSale.image
-        let imageStorageRef = imageStorage?.storage.reference(forURL: imageDownloadUrl)
-        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        imageStorageRef?.getData(maxSize: 1 * 1024 * 1024) { data, error in
-            if error != nil {
-                // Uh-oh, an error occurred!
-            } else {
-                // Data for "images/---.png" is returned
-                let img = UIImage(data: data!)
-                cell?.photo.image = img
-            }
-        }
+        let imageStorageRef = (imageStorage?.storage.reference(forURL: imageDownloadUrl))!
+        let placeholderImage = UIImage(named: "loading")
+        cell?.photo.sd_setImage(with: imageStorageRef, placeholderImage: placeholderImage)
+//        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+//        imageStorageRef?.getData(maxSize: 1 * 1024 * 1024) { data, error in
+//            if error != nil {
+//                // Uh-oh, an error occurred!
+//            } else {
+//                // Data for "images/---.png" is returned
+//                let img = UIImage(data: data!)
+//                cell?.photo.image = img
+//            }
+//        }
         return cell!
         //because return type is defined as non-optional UITableViewCell
     }
@@ -193,7 +196,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         switch(segue.identifier ?? "") {
         case "showSelectedSale":
             print("Showing a sale")
-            let destVC = segue.destination as? DetailViewController
+            // There are two segues to cross (look at the storyboard)
+            let navC = segue.destination as? UINavigationController
+            let destVC = navC?.topViewController as? DetailViewController
             let selectedIndexPath = salesTV.indexPathForSelectedRow
             let currentSale: YardSale
             if isFiltering() {
@@ -249,6 +254,5 @@ extension HomeViewController: UISearchBarDelegate {
         filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
 }
-
 
 

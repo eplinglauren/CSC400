@@ -57,5 +57,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Showing location on a map for place autocomplete.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Showing location on a map for place autocomplete.</string>
 </dict>
 </plist>

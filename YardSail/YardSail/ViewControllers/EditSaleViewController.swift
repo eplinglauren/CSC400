@@ -9,10 +9,14 @@
 import UIKit
 import os.log
 import Firebase
+import FirebaseUI
+import SwiftValidator
 
-class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ValidationDelegate {
     
     @IBOutlet weak var titleLabel: UITextField!
+    private var titlePicker: UIPickerView?
+    private let titleValues: NSArray = ["Yard Sale","Garage Sale","Estate Sale"]
     @IBOutlet weak var locationLabel: UITextField!
     @IBOutlet weak var priceLabel: UITextField!
     private var pricePicker: UIPickerView?
@@ -24,11 +28,16 @@ class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var descriptionLabel: UITextView!
     @IBOutlet weak var image: UIImageView!
     var imageURL: String!
-    
+    let validator = Validator()
     var sale: YardSale?
     override func viewDidLoad() {
         super.viewDidLoad()
         let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(EditSaleViewController.dismissPicker))
+        titlePicker = UIPickerView()
+        titlePicker?.delegate = self
+        titlePicker?.dataSource = self
+        titleLabel.inputView = titlePicker
+        titleLabel.inputAccessoryView = toolBar
         pricePicker = UIPickerView()
         pricePicker?.delegate = self
         pricePicker?.dataSource = self
@@ -54,17 +63,10 @@ class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewD
         descriptionLabel.text = sale?.desc
         
         let imageDownloadUrl = sale!.image
-        let imageStorageRef = imageStorage?.storage.reference(forURL: imageDownloadUrl)
-        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        imageStorageRef?.getData(maxSize: 1 * 1024 * 1024) { data, error in
-            if error != nil {
-                // Uh-oh, an error occurred!
-            } else {
-                // Data for "images/---.png" is returned
-                let img = UIImage(data: data!)
-                self.image.image = img
-            }
-        }
+        self.imageURL = imageDownloadUrl
+        let imageStorageRef = (imageStorage?.storage.reference(forURL: imageDownloadUrl))!
+        let placeholderImage = UIImage(named: "loading")
+        self.image.sd_setImage(with: imageStorageRef, placeholderImage: placeholderImage)
         
         titleLabel.delegate = self
         locationLabel.delegate = self
@@ -73,6 +75,14 @@ class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewD
         timeLabel.delegate = self
         descriptionLabel.delegate = self
         image.isUserInteractionEnabled = true
+        
+        // Validation Rules are evaluated from left to right.
+        validator.registerField(titleLabel, rules: [RequiredRule()])
+        validator.registerField(locationLabel, rules: [RequiredRule()])
+        validator.registerField(dateLabel, rules: [RequiredRule()])
+        validator.registerField(timeLabel, rules: [RequiredRule()])
+        validator.registerField(priceLabel, rules: [RequiredRule()])
+        validator.registerField(descriptionLabel, rules: [RequiredRule()])
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -80,16 +90,31 @@ class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerValues.count
+        if pickerView == titlePicker {
+            return titleValues.count
+        } else if pickerView == pricePicker {
+            return pickerValues.count
+        }
+        return 0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerValues[row] as? String
+        if pickerView == titlePicker {
+            return titleValues[row] as? String
+        } else if pickerView == pricePicker {
+            return pickerValues[row] as? String
+        }
+        return ""
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let price = pickerValues[row] as? String
-        priceLabel.text = price
+        if pickerView == titlePicker {
+            let title = titleValues[row] as? String
+            titleLabel.text = title
+        } else if pickerView == pricePicker {
+            let price = pickerValues[row] as? String
+            priceLabel.text = price
+        }
     }
     
     @objc func dismissPicker(){
@@ -106,6 +131,27 @@ class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewD
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = .short
         timeLabel.text = timeFormatter.string(from: timePicker.date)
+    }
+    
+    // ValidationDelegate methods
+    func validationSuccessful() {
+        performSegue(withIdentifier: "unwindFromEditSaleVC", sender: self)
+    }
+    
+    func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
+        // turn the fields to red
+        for (field, error) in errors {
+            if let field = field as? UITextField {
+                field.layer.borderColor = UIColor.red.cgColor
+                field.layer.borderWidth = 2.0
+            }
+            if let field = field as? UITextView {
+                field.layer.borderColor = UIColor.red.cgColor
+                field.layer.borderWidth = 2.0
+            }
+            error.errorLabel?.text = error.errorMessage // works if you added labels
+            error.errorLabel?.isHidden = false
+        }
     }
     
     // MARK: - Text Field Delagate
@@ -198,6 +244,9 @@ class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewD
         })
     }
     
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        validator.validate(self)
+    }
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }

@@ -13,7 +13,10 @@ target 'YardSail' do
   pod 'Firebase/Storage'
   pod 'FirebaseUI/Storage'
   pod 'FSCalendar'
+  pod 'GooglePlaces'
+  pod 'GoogleMaps'
   pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
+  pod 'MessageKit', :git => 'https://github.com/MessageKit/MessageKit.git', :tag => '3.0.0-swift5'
 
   target 'YardSailTests' do
     inherit! :search_paths
