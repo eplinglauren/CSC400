@@ -27,6 +27,8 @@ class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewD
     private var timePicker: UIDatePicker?
     @IBOutlet weak var descriptionLabel: UITextView!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var uploadWheel: UIActivityIndicatorView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     var imageURL: String!
     let validator = Validator()
     var sale: YardSale?
@@ -176,7 +178,10 @@ class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewD
         
         // Set photoImageView to display the selected image.
         image.image = selectedImage
-        
+        saveButton.isEnabled = false
+        image.isOpaque = true
+        uploadWheel.isHidden = false
+        uploadWheel.startAnimating()
         guard let imageData = image.image?.jpegData(compressionQuality: 0.5) else {
             fatalError("Error translating image into png data form")
         }
@@ -203,6 +208,10 @@ class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewD
                     return
                 }
                 self.imageURL = downloadURL.absoluteURL.absoluteString
+                self.uploadWheel.stopAnimating()
+                self.uploadWheel.isHidden = true
+                self.image.isOpaque = false
+                self.saveButton.isEnabled = true
             }
         }
         //print("Validated! image url: "+self.imageURL!)
@@ -240,7 +249,7 @@ class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewD
             print("User click Dismiss button")
         }))
         self.present(alert, animated: true, completion: {
-            print("Logout completion block:")
+            print("Delete completion block:")
         })
     }
     
@@ -254,6 +263,7 @@ class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewD
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as? HomeViewController
+        let initSale = self.sale
         sale?.title = (titleLabel?.text!)!
         sale?.location = locationLabel.text!
         sale?.pricing = priceLabel.text!
@@ -261,6 +271,8 @@ class EditSaleViewController: UIViewController, UITextFieldDelegate, UITextViewD
         sale?.time = timeLabel.text!
         sale?.desc = descriptionLabel.text!
         sale?.image = self.imageURL
+        initSale?.ref?.removeValue()
+        destVC?.addSale(newSale: sale!)
         destVC?.addProfileSale(newSale: sale!)
     }
     

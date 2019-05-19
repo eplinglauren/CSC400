@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         GMSPlacesClient.provideAPIKey("AIzaSyAXybO6OyAs933kf4birgQ2YVACEwtR-us")
+        window?.tintColor = UIColor(named: "globalTint")
         return true
     }
 

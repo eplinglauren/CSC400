@@ -26,7 +26,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         // Do any additional setup after loading the view, typically from a nib.
         self.profileTableView.delegate = self
         self.profileTableView.dataSource = self
-        
+        profileTableView.layoutMargins = UIEdgeInsets.zero
+        profileTableView.separatorInset = UIEdgeInsets.zero
         Auth.auth().addStateDidChangeListener() { auth, user in
             if user != nil {
                 let email = user?.email ?? ""
@@ -87,7 +88,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? CustomTableViewCell
-        
+        cell?.layoutMargins = UIEdgeInsets.zero
         // Configure the cell...
         let thisSale = profileSales[indexPath.row]
         cell?.titleLabel?.text = thisSale.title
@@ -96,19 +97,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         cell?.timeLabel?.text = thisSale.time
         cell?.priceLabel?.text = thisSale.pricing
         cell?.descLabel?.text = thisSale.desc
-        
-//        let imageDownloadUrl = thisSale.image
-//        let imageStorageRef = imageStorage?.storage.reference(forURL: imageDownloadUrl)
-//        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-//        imageStorageRef?.getData(maxSize: 1 * 1024 * 1024) { data, error in
-//            if error != nil {
-//                // Uh-oh, an error occurred!
-//            } else {
-//                // Data for "images/---.png" is returned
-//                let img = UIImage(data: data!)
-//                cell?.photo.image = img
-//            }
-//        }
         return cell!
     }
     

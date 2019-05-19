@@ -30,6 +30,8 @@ class AddSaleViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     @IBOutlet weak var timeField: UITextField!
     private var timePicker: UIDatePicker?
     @IBOutlet weak var descriptionField: UITextView!
+    @IBOutlet weak var uploadWheel: UIActivityIndicatorView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     let validator = Validator()
     let locationManager = CLLocationManager()
@@ -208,7 +210,10 @@ class AddSaleViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         
         // Set photoImageView to display the selected image.
         image.image = selectedImage
-        
+        saveButton.isEnabled = false
+        image.isOpaque = true
+        uploadWheel.isHidden = false
+        uploadWheel.startAnimating()
         guard let imageData = image.image?.jpegData(compressionQuality: 0.5) else {
             fatalError("Error translating image into png data form")
         }
@@ -235,6 +240,10 @@ class AddSaleViewController: UIViewController, UITextFieldDelegate, UITextViewDe
                     return
                 }
                 self.imageURL = downloadURL.absoluteURL.absoluteString
+                self.uploadWheel.stopAnimating()
+                self.uploadWheel.isHidden = true
+                self.image.isOpaque = false
+                self.saveButton.isEnabled = true
             }
         }
         //print("Validated! image url: "+self.imageURL!)
@@ -245,13 +254,25 @@ class AddSaleViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     
     @IBAction func photoTapped(_ sender: UITapGestureRecognizer) {
         let picker = UIImagePickerController()
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+        let alert = UIAlertController(title: "Photo", message: "Select a Photo Source", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (_) in
             picker.sourceType = .photoLibrary
-        } else {
+            picker.delegate = self
+            self.present(picker, animated: true, completion: nil)
+            print("User click Photo Library button")
+        }))
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
             picker.sourceType = .camera
-        }
-        picker.delegate = self
-        present(picker, animated: true, completion: nil)
+            picker.delegate = self
+            self.present(picker, animated: true, completion: nil)
+            print("User click Photo Library button")
+        }))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { (_) in
+            print("User click Dismiss button")
+        }))
+        self.present(alert, animated: true, completion: {
+            print("Camera completion block:")
+        })
     }
     
     // MARK: - Navigation

@@ -25,6 +25,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        salesTV.layoutMargins = UIEdgeInsets.zero
+        salesTV.separatorInset = UIEdgeInsets.zero
         imageStorage = Storage.storage().reference(withPath: "Images")
         database = Database.database().reference(withPath: "Public")
         profileDatabase = Database.database().reference(withPath: "Profiles")
@@ -45,8 +47,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        searchController.searchBar.tintColor = appDelegate.window?.tintColor
         searchController.searchBar.placeholder = "Search Sales"
         navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
         definesPresentationContext = true
         // Setup the Scope Bar
         searchController.searchBar.scopeButtonTitles = ["All", "Yard", "Garage", "Estate"]
@@ -76,6 +81,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let uid = Auth.auth().currentUser?.uid
         let newSaleRef = database?.child(title+"-"+loc+"_"+uid!)
         newSaleRef?.setValue(newSale.toAnyObject())
+    }
+    
+    func removeSale(remSale : YardSale) {
+        let imgUrl = remSale.image
+        let childPath = remSale.date+"_"+remSale.time
+        let imgRef = imageStorage?.storage.reference(forURL: imgUrl)
+        imgRef?.child(childPath).delete(completion: nil)
+        remSale.ref?.removeValue()
     }
     
     func addProfileSale(newSale : YardSale) {
@@ -133,7 +146,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? CustomTableViewCell
-        
+        cell?.layoutMargins = UIEdgeInsets.zero
         // Configure the cell...
         let thisSale: YardSale
         if isFiltering() {
@@ -152,16 +165,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let imageStorageRef = (imageStorage?.storage.reference(forURL: imageDownloadUrl))!
         let placeholderImage = UIImage(named: "loading")
         cell?.photo.sd_setImage(with: imageStorageRef, placeholderImage: placeholderImage)
-//        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-//        imageStorageRef?.getData(maxSize: 1 * 1024 * 1024) { data, error in
-//            if error != nil {
-//                // Uh-oh, an error occurred!
-//            } else {
-//                // Data for "images/---.png" is returned
-//                let img = UIImage(data: data!)
-//                cell?.photo.image = img
-//            }
-//        }
         return cell!
         //because return type is defined as non-optional UITableViewCell
     }
@@ -197,16 +200,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         case "showSelectedSale":
             print("Showing a sale")
             // There are two segues to cross (look at the storyboard)
-            let navC = segue.destination as? UINavigationController
-            let destVC = navC?.topViewController as? DetailViewController
-            let selectedIndexPath = salesTV.indexPathForSelectedRow
-            let currentSale: YardSale
-            if isFiltering() {
-                currentSale = filteredSales[(selectedIndexPath?.row)!]
-            } else {
-                currentSale = ourSales[(selectedIndexPath?.row)!]
+            if let navC = segue.destination as? UINavigationController {
+                if let destVC = navC.topViewController as? DetailViewController {
+                    let selectedIndexPath = salesTV.indexPathForSelectedRow
+                    let currentSale: YardSale
+                    if isFiltering() {
+                        currentSale = filteredSales[(selectedIndexPath?.row)!]
+                    } else {
+                        currentSale = ourSales[(selectedIndexPath?.row)!]
+                    }
+                    destVC.dataFromTable = currentSale
+                }
             }
-            destVC?.dataFromTable = currentSale
         case "AddSale":
             print("Adding a new sale")
         case "showProfile":

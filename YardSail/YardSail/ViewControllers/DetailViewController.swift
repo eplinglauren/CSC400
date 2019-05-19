@@ -12,11 +12,6 @@ import Firebase
 import FirebaseUI
 
 class DetailViewController: UIViewController {
-    @IBOutlet weak var passedTitleLabel: UILabel!
-    @IBOutlet weak var passedLocationLabel: UILabel!
-    @IBOutlet weak var passedPriceLabel: UILabel!
-    @IBOutlet weak var passedDateLabel: UILabel!
-    @IBOutlet weak var passedTimeLabel: UILabel!
     @IBOutlet weak var passedDescLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
     
@@ -30,12 +25,14 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        navBar.title = dataFromTable?.title
-        passedTitleLabel.text = dataFromTable?.title
-        passedLocationLabel.text = dataFromTable?.location
-        passedDateLabel.text = dataFromTable?.date
-        passedTimeLabel.text = dataFromTable?.time
-        passedPriceLabel.text = dataFromTable?.pricing
+        let title = (dataFromTable?.title)!
+        let price = (dataFromTable?.pricing)!
+        let navTitle = title + " ("+price+")"
+        let subNavTitle = (dataFromTable?.location)!
+        let date = (dataFromTable?.date)!
+        let time = (dataFromTable?.time)!
+        let subsubNavTitle = date + " " + time
+        navBar.setTitle(title: navTitle,subtitle: subNavTitle,subsubtitle: subsubNavTitle)
         passedDescLabel.text = dataFromTable?.desc
         
         let imageDownloadUrl = (dataFromTable?.image)!
@@ -64,7 +61,7 @@ class DetailViewController: UIViewController {
                 // 4
                 let event = EKEvent(eventStore: store)
                 event.calendar = calendar
-                let title = passedTitleLabel.text! + user!
+                let title = dataFromTable!.title + user!
                 event.title = title
                 event.startDate = startDate
                 event.endDate = endDate
@@ -121,5 +118,35 @@ class DetailViewController: UIViewController {
 //        default:
 //            print("Case default")
 //        }
+    }
+}
+
+extension UINavigationItem {
+    
+    func setTitle(title: String, subtitle: String, subsubtitle: String) {
+        let appearance = UINavigationBar.appearance()
+        let textColor = appearance.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor ?? .black
+        
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.font = .preferredFont(forTextStyle: UIFont.TextStyle.headline)
+        titleLabel.textColor = textColor
+        
+        let subtitleLabel = UILabel()
+        subtitleLabel.text = subtitle
+        subtitleLabel.font = .preferredFont(forTextStyle: UIFont.TextStyle.subheadline)
+        subtitleLabel.textColor = textColor.withAlphaComponent(0.75)
+        
+        let subsubtitleLabel = UILabel()
+        subsubtitleLabel.text = subsubtitle
+        subsubtitleLabel.font = .preferredFont(forTextStyle: UIFont.TextStyle.subheadline)
+        subsubtitleLabel.textColor = textColor.withAlphaComponent(0.75)
+        
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, subsubtitleLabel])
+        stackView.distribution = .equalCentering
+        stackView.alignment = .center
+        stackView.axis = .vertical
+        
+        self.titleView = stackView
     }
 }
